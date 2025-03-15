@@ -4,7 +4,7 @@ import keyboard
 
 files=os.listdir()
 cursor=0
-
+kast='>'
 #setings
 style="\033[4m\033[37m\033[44m{}"
 open_file_is_bin=False
@@ -19,7 +19,7 @@ while True:
         otstup='                         '[len(files[i])+len(str(index)):]
         ves=os.path.getsize(files[i])
         if cursor==i:
-            cours=">"
+            cours=kast
         else:
             cours=''
         out+=f"{cours}{index} {files[i]}{otstup} bite {ves}\n"
@@ -57,7 +57,7 @@ while True:
         os.chdir('..')
     if keyboard.is_pressed('Esc'):
         while True:
-            command=input('>>')
+            command=input(kast)
             if keyboard.is_pressed('Esc') or command=='e':#выход
                 break
             elif command=='exit':
@@ -72,7 +72,6 @@ while True:
                 file = command.split(" ")[1]
                 if os.path.isfile(file):
                     os.system(f'python {file}')
-                        
                 else:
                     print("error file 1")
             elif command.startswith("rm") or command.startswith("del"):#удоление файла/директории

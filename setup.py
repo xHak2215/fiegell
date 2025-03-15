@@ -6,7 +6,7 @@ if platform.system() =='Linux':
     os.system('python3 -m venv menadger')
     os.chdir('menadger')
     os.system('python.exe -m pip install --upgrade pip')
-    os.system('source bin/activate')
+    os.system('./bin/activate')
     os.chdir(dire)
     for i in range(0,len(libd)):
         print(f'install lib >> {libd[i]}')

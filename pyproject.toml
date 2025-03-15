@@ -8,6 +8,7 @@ version = "1.1.0"
 description = "не сложный файловый менаджер"
 authors = ["Yarik mutg <@HITHELL.com>"]
 license = "MIT"
+repository ="https://github.com/xHak2215/fiegell"
 
 [tool.poetry.dependencies]
 python = "^3.12"

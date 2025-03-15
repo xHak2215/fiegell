@@ -68,10 +68,17 @@ while True:
                     os.chdir(directory_name)
                 except FileNotFoundError:
                     print("error file 1")
+            elif command.startswith("python"):#запуск пайтон програм 
+                file = command.split(" ")[1]
+                if os.path.isfile(file):
+                    os.system(f'python {file}')
+                        
+                else:
+                    print("error file 1")
             elif command.startswith("rm") or command.startswith("del"):#удоление файла/директории
                 try:
                     directory_name = command.split(" ")[1]
-                    os.rmdir(directory_name)
+                    os.remove(directory_name)
                 except FileNotFoundError:
                     print("error file 1")
             elif command.startswith(":") or command.startswith("file"):#поиск файлов по номеру

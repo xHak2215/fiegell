@@ -3,8 +3,11 @@ import keyboard
 #import subprocess
 
 files=os.listdir()
-style="\033[4m\033[37m\033[44m{}"
 cursor=0
+
+#setings
+style="\033[4m\033[37m\033[44m{}"
+open_file_is_bin=False
 
 while True:
     cours=''
@@ -29,6 +32,8 @@ while True:
 #This part of the code is creating a command-line interface within the Python script. When the 'Esc'
 #key is pressed, the program enters a loop where it continuously waits for user input. The user can
 #enter various commands such as changing directories ('cd'), deleting files or directories ('rm' or 'del'), searching for files by number (':','file'), or printing the current working directory ('pwb').
+#Cursor shift using the arrow (↑ ↓) transition or opening a file using the Enter key return to the last directory ←
+#сдвиг курсора с помощью стрелочек ( ↑  ↓ ) переход или открытие файла с помощью клавиши Enter возврат в прошлую директорию ← 
     if keyboard.is_pressed('down'):
         cursor=cursor+1
     if keyboard.is_pressed('up'):
@@ -36,15 +41,20 @@ while True:
     if cursor<0:
         cursor=0
     if keyboard.is_pressed('enter'):
-        if os.path.isdir(files[cursor]):    
-            os.chdir(files[cursor])
-        if os.path.isfile(files[cursor]):
-            file=open(files[cursor],"rb")
-            print(file.read())
+        if os.path.isdir(os.getcwd()+'/'+files[cursor]):    
+            os.chdir(os.getcwd()+'/'+files[cursor])
+        if os.path.isfile(os.getcwd()+'/'+files[cursor]):
+            file=open(os.getcwd()+'/'+files[cursor],"rb" if open_file_is_bin else 'r')
+            while True:
+                if keyboard.is_pressed('Esc'):
+                    break
+                print(file.read())
+                
+                os.system('clear')
             file.close()
+            #print(os.access(os.getcwd()+'/'+files[cursor],os.X_OK))
     if keyboard.is_pressed('left'):
         os.chdir('..')
-            
     if keyboard.is_pressed('Esc'):
         while True:
             command=input('>>')
@@ -72,6 +82,8 @@ while True:
                     print("error no file number")
             elif command.startswith('pwb') or command.startswith('dir'):
                 print(os.getcwd())
+            elif command.startswith("") or command.startswith(" "):
+                break
             else:
                 print('error no command')
         else:

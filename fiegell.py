@@ -4,8 +4,9 @@ import keyboard
 
 files=os.listdir()
 cursor=0
-kast='>'
+
 #setings
+kast='>'
 style="\033[4m\033[37m\033[44m{}"
 open_file_is_bin=False
 

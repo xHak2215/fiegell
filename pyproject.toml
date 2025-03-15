@@ -12,9 +12,12 @@ repository ="https://github.com/xHak2215/fiegell"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+keyboard = { version = "^2.7", optional = true }
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"
 
 [tool.poetry.extras]
 docs = ["sphinx"]
+
+

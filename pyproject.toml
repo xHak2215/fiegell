@@ -1,11 +1,11 @@
 [build-system]
-requires = ["poetry-core>=5.4.0"]
+requires = ["poetry-core>=2.1.1"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "SH_file_menadger"
 version = "1.4.0"
-description = "не сложный файловый менаджер"
+description = "не сложный файловый менаджер с псевдо графикой"
 authors = ["Yarik mutg <@HITHELL.com>"]
 license = "MIT"
 repository ="https://github.com/xHak2215/fiegell"

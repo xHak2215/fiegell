@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 name = "SH_file_menadger"
 version = "1.4.0"
 description = "не сложный файловый менаджер с псевдо графикой"
-authors = ["Yarik mutg <@HITHELL.com>"]
+authors = ["hit<@HITHELL.com>"]
 license = "MIT"
 repository ="https://github.com/xHak2215/fiegell"
 
